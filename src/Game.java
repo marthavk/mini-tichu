@@ -93,7 +93,6 @@ public class Game {
 	
 	/**
 	 * Checks if the game is over
-	 * @param endScore: the score limit
 	 * @return true if the game is over, false otherwise
 	 */
 	public boolean isOver(int roundCtr) {

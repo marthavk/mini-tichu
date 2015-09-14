@@ -43,10 +43,12 @@ public class Card extends JPanel{
 	    * 2 through 14, with 14 representing ACE.  The value cannot be changed
 	    * after the card is constructed.
 	    */
-	   public final int value;
+		public final int value;
 	   
 	  
-	   public  ImageIcon image;
+		public  ImageIcon image;
+
+		private static final String imageFolderPath = "resources/images/";
 	  
 	 
 	   /**
@@ -166,7 +168,7 @@ public class Card extends JPanel{
 	   }
 	   
 	   public static String getCardFilename(int cardValue, int cardSuit) {
-		   return getValueAsString(cardValue) + "of" + getSuitAsString(cardSuit) + ".gif";
+		   return imageFolderPath + getValueAsString(cardValue) + "of" + getSuitAsString(cardSuit) + ".GIF";
 	   }
 	   
 	   public void drawCard(Graphics g, int x, int y) {
@@ -176,7 +178,8 @@ public class Card extends JPanel{
 				g.drawImage(tempImage, x, y, null);
 			//	System.out.println("Card painted:" + card.toString());
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				GameDemo.message.append(getCardFilename(getValue(), getSuit()));
+				GameDemo.message.append("Working Directory = " + System.getProperty("user.dir"));
 				GameDemo.message.append(e.getMessage());
 				e.printStackTrace();
 			}
